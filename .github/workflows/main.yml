@@ -37,7 +37,7 @@ jobs:
         terraform_version: 1.0.0
     - name: Terraform Init
       working-directory: tf
-      run: terraform init -backend-config="bucket=${{secrets.TF_STATE_BUCKET_NAME}}" -backend-config="key=state.tfstate" -backend-config="region=us-east-1"
+      run: terraform init -backend-config="bucket=mytfbucket-jigsaw" -backend-config="key=state.tfstate" -backend-config="region=us-east-1"
 
     - name: Terraform Plan
       working-directory: tf
