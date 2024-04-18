@@ -2,6 +2,15 @@ provider "aws" {
   region = "us-east-1"
 }
 
+terraform {
+  backend "s3" {
+    bucket = "mytfbucket-jigsaw"
+    key    = "state.tfstate"
+    region = "us-east-1"
+    # Ensure all required configurations like encrypt, acl, etc., are specified if needed
+  }
+}
+
 resource "aws_instance" "ec2_instance" {
   ami           = "ami-0d7a109bf30624c99" # you may need to update this
   instance_type = "t2.micro"
